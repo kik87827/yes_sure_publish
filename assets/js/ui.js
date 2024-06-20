@@ -141,7 +141,7 @@ function mainSwiper(){
         mcWheelUpCheck(thisEvent);
       }
     }else{
-      mcScrollCheck(thisEvent);
+      // mcScrollCheck(thisEvent);
     }
   });
   
@@ -209,6 +209,7 @@ function mainSwiper(){
         $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeOut();
         $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeIn();
     }else if(mainSwiper.realIndex == 9){
+      $(".btn_bottom_scroll_wrap").fadeOut();
       if($(window).width()>1023){
         $(".nav_top_list_zone").addClass("skin2").fadeIn();
         $(".nav_bottom_list_zone ,.btn_top_scroll_wrap").fadeOut();
@@ -235,6 +236,7 @@ function mainSwiper(){
 
   function mcScrollCheck(target){
     let $this = target;
+    if(mainSwiper.realIndex == 9){return;}
     if ($this[0].scrollHeight - $this.scrollTop() === $this.outerHeight()) {
       mainSwiper.slideNext(1000);
     }else if($this.scrollTop() === 0){
@@ -254,5 +256,24 @@ function mainSwiper(){
     if ($this[0].scrollHeight - $this.scrollTop() === $this.outerHeight()) {
       mainSwiper.slideNext(1000);
     }
+  }
+}
+
+
+function formLayout(){
+  let scene_form_item_key = $(".scene_form_item").not(".type2").find(".scene_form_key_cols");
+  let maxkey = [];
+  action();
+  $(window).on("resize",function(){
+    action();
+  });
+
+
+  function action(){
+    scene_form_item_key.css("flex-basis","");
+    scene_form_item_key.each(function(){
+      maxkey.push($(this).outerWidth());
+    });
+    scene_form_item_key.css({"flex-basis" : Math.max.apply(null,maxkey) });
   }
 }
