@@ -96,24 +96,24 @@ function mainSwiper(){
   const mv_swiper_slide = main_swpier_container.find(".swiper-slide");
 
   let mainSwiper = new Swiper('.main_swpier_container', {
-       direction: 'vertical',
-       mousewheel: true,
-       freeMode: false,
-       slidesPerView: "auto",
-       autoHeight : true,
-       speed : 1000,
-       initialSlide : 0,
-       on : {
-           setTranslate: function (translate) {
-               /* if(window.innerWidth>=1024){return;}
-               if(translate.translate < 0){
-                  header_wrap.classList.add("scroll");
-              }else{
-                   header_wrap.classList.remove("scroll");
-               } */
-           },
-       }
-   });
+      direction: 'vertical',
+      mousewheel: true,
+      freeMode: false,
+      slidesPerView: "auto",
+      autoHeight : true,
+      speed : 1000,
+      initialSlide : 0,
+      on : {
+          setTranslate: function (translate) {
+              /* if(window.innerWidth>=1024){return;}
+              if(translate.translate < 0){
+                header_wrap.classList.add("scroll");
+            }else{
+                  header_wrap.classList.remove("scroll");
+              } */
+          },
+      }
+  });
 
   screenAction();
   heightCheck();
@@ -166,7 +166,9 @@ function mainSwiper(){
       mainSwiper.slideTo(9,1000);
     }
   });
-
+  setTimeout(()=>{    
+    $(".nav_bottom_item").last().trigger("click");
+  },300);
 
   function heightCheck(){
       /* let header_wrap_height = 0;
@@ -229,8 +231,6 @@ function mainSwiper(){
         $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeIn();
         $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeOut();
     }
-    
-
   }
 
   function mcScrollCheck(target){

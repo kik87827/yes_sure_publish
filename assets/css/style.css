@@ -96,6 +96,39 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .btn_top_scroll{background:rgba(255,255,255,.4); box-sizing: border-box; display:flex; justify-content: center;align-items: center;border:1px solid rgba(0,0,0,.4); border-radius:100%;width:72px;height:72px;}
 .btn_top_scroll:after{display:block;content:'';width:34px;height:30px;background:url("../images/scroll_pointer2.svg") no-repeat 50% 50%/100% auto;}
 
+.scene_contents_inner{display:flex; flex-direction: column; justify-content: center; align-items: center; min-height:100vh; padding:120px 30px 120px; box-sizing: border-box;}
+.scene_form_container{}
+.scene_form_title_row{text-align: center;}
+.scene_form_title_obj_row{text-align: center; display:flex; justify-content: center; margin-bottom:10px;}
+.scene_form_title_obj_row .ico{display:inline-block; width:40px; height:40px; background-repeat:no-repeat; background-size:100% auto; background-position:0 0;}
+.scene_form_title_obj_row .ico.ico_dot{background-image:url("../images/pointer_contact.svg");}
+.scene_form_title{}
+.scene_form_title .ico{}
+.scene_form_title .ico.ico_contact{}
+.scene_form_title_text{font-size:56px; color:#000000; font-weight:700; line-height:1; display:inline-block; letter-spacing: -1px;}
+.scene_form_title_sub{font-size:16px; color:#555555; margin-top:10px; text-align: center;}
+
+.scene_form_contents_row{margin-top:48px;}
+.scene_form_tb_wrap{}
+.scene_form_tb,
+.scene_form_tr{display:flex;gap:20px;}
+.scene_form_tb{flex-direction: column;}
+.scene_form_tr{}
+.scene_form_item{flex:1; border:1px solid rgba(0,0,0,.4); border-radius: 12px; display:flex; align-items: center; gap:10px;}
+.scene_form_item.type2{}
+.scene_form_item.type2 .scene_form_key_cols{}
+.scene_form_item.type2 .sf_key_label{}
+.scene_form_item.type2 .sf_imp{}
+.scene_form_item.type2 .scene_form_value_cols{}
+.scene_form_item.type2 textarea.sf_ta{}
+.scene_form_key_cols{}
+.sf_key_label{}
+.sf_imp{}
+.scene_form_value_cols{}
+input.sf_input{}
+.btn_form_submit_wrap{}
+.btn_form_submit{}
+
 
 @media (max-width:1023px){
     .nav_top_list_wrap{display:none;}
