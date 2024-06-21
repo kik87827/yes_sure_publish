@@ -166,9 +166,6 @@ function mainSwiper(){
       mainSwiper.slideTo(9,1000);
     }
   });
-  setTimeout(()=>{    
-    $(".nav_bottom_item").last().trigger("click");
-  },300);
 
   function heightCheck(){
       /* let header_wrap_height = 0;
