@@ -101,6 +101,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .scene_contents_inner{display:flex; flex-direction: column; justify-content: center; align-items: center; min-height:100vh; padding:180px 30px 120px; box-sizing: border-box;}
 .scene_contents_inner.type2{padding:120px 30px;}
 .scene_contents_inner.type3{padding:0 0 134px;}
+.scene_contents_inner.type4{}
 .scene_form_container{width:100%; max-width:1100px; margin:0 auto;}
 .scene_form_title_row{text-align: center;}
 .scene_form_title_obj_row{text-align: center; display:flex; justify-content: center; margin-bottom:10px;}
@@ -160,6 +161,29 @@ textarea.sf_ta{width:100%; height:96px; font-size:20px; letter-spacing: -1px; bo
 .info_symbol_sub{font-size:16px; color:#666666; margin-top:8px;}
 .info_signature_logo{margin-top:60px;}
 .info_signature_logo img{max-width:358px;vertical-align: top;}
+
+
+.scene_list_container{}
+.scene_list_title_row{}
+.scene_list_title_row .scene_form_title_sub{}
+.scene_obj_title{}
+.scene_obj_title:before{}
+.scene_obj_title:after{}
+.scene_obj_title_text{}
+.scene_list_contents_row{}
+.scene_toggle_list_wrap{}
+.scene_toggle_list{}
+.scene_toggle_list > li{}
+.scene_toggle_list > li.active{}
+.scene_toggle_list > li.active .scene_toggle_bar{}
+.scene_toggle_list > li.active .scene_toggle_contents{}
+.scene_toggle_list > li.active .scene_toggle_bar:after{}
+.scene_toggle_list > li:last-of-type{}
+.scene_toggle_bar{}
+.scene_toggle_bar:after{}
+.scene_toggle_bar_text{}
+.scene_toggle_contents{}
+.scene_toggle_contents_inner{}
 
 
 @media (max-width:1680px){
