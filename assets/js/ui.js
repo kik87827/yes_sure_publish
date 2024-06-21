@@ -146,14 +146,21 @@ function mainSwiper(){
   });
   
   // btn event
-  $(".btn_bottom_scroll").on("click",function(){
-    mainSwiper.slideTo(1,1000);
-  });
-  $(".btn_top_scroll").on("click",function(){
+  $(".nav_top_logo_link").on("click",function(e){
+    e.preventDefault();
     mainSwiper.slideTo(0,1000);
   });
-  $(".nav_top_item , .nav_bottom_item").on("click",function(){
+  $(".btn_bottom_scroll").on("click",function(e){
+    e.preventDefault();
+    mainSwiper.slideTo(1,1000);
+  });
+  $(".btn_top_scroll").on("click",function(e){
+    e.preventDefault();
+    mainSwiper.slideTo(0,1000);
+  });
+  $(".nav_top_item , .nav_bottom_item").on("click",function(e){
     let thisIndex = $(this).closest("li").index();
+    e.preventDefault();
     if(thisIndex === 0){
       mainSwiper.slideTo(1,1000);
     }else if(thisIndex === 1){
