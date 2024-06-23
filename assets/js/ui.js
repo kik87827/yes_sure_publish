@@ -131,6 +131,7 @@ function mainSwiper(){
   window.addEventListener("resize",()=>{
       heightCheck();
   });
+  $(".scene_contents").attr("tabindex",0);
   $(".scene_contents").on("wheel scroll",function(e){
     let thisEvent = $(this);
     if(e.type === "wheel"){
@@ -208,6 +209,7 @@ function mainSwiper(){
   function screenAction(){
     $(".nav_top_list_zone").removeClass("skin2");
     $(".nav_top_item,.nav_bottom_item").removeClass("active");
+    //$(".scene_contents").eq(mainSwiper.realIndex).focus();
     //$(".nav_top_list > .nav_bottom_list").find(".nav_top_item,.nav_bottom_item").removeClass("active");
     if (mainSwiper.realIndex == 0) {
         $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeOut();
