@@ -114,6 +114,15 @@ function mainSwiper(){
           },
       }
   });
+  let resourceSwiper = new Swiper('.hor_swiper_wrap',{
+    speed : 1000,
+    // autoHeight : true,
+    effect : 'fade',
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+  })
 
   screenAction();
   heightCheck();
@@ -234,6 +243,12 @@ function mainSwiper(){
           $(".nav_bottom_item").eq(2).addClass("active");
         }else if(mainSwiper.realIndex == 8){
           $(".nav_bottom_item").eq(3).addClass("active");
+        }
+        if (mainSwiper.realIndex == 3) {
+          resourceSwiper.slideTo(0,0);
+          setTimeout(()=>{
+            resourceSwiper.autoplay.start();
+          },1100);
         }
         $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeIn();
         $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeOut();
