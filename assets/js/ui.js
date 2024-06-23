@@ -95,6 +95,12 @@ function mainSwiper(){
   const main_swpier_container = $(".main_swpier_container");
   const mv_swiper_slide = main_swpier_container.find(".swiper-slide");
 
+  let intervalTime = 0;
+  let addIndex = 0;
+  let serviceSwiper = null;
+  let service_swiper_slide = $(".service_swiper_wrap .swiper-slide");
+  let service_swiper_length = service_swiper_slide.length;
+
   let mainSwiper = new Swiper('.main_swpier_container', {
       direction: 'vertical',
       mousewheel: true,
@@ -122,7 +128,12 @@ function mainSwiper(){
       delay: 2500,
       disableOnInteraction: false,
     },
-  })
+  });
+  /* let serviceSwiper = new Swiper('.service_swiper_wrap',{
+    speed : 1000,
+    freeMode: true,
+    slidesPerView: 4,
+  }); */
 
   screenAction();
   heightCheck();
@@ -216,10 +227,20 @@ function mainSwiper(){
   }
 
   function screenAction(){
+
     $(".nav_top_list_zone").removeClass("skin2");
     $(".nav_top_item,.nav_bottom_item").removeClass("active");
     //$(".scene_contents").eq(mainSwiper.realIndex).focus();
     //$(".nav_top_list > .nav_bottom_list").find(".nav_top_item,.nav_bottom_item").removeClass("active");
+    if(intervalTime){
+      clearInterval(intervalTime);
+      addIndex = 0;
+      intervalTime = 0;
+      setTimeout(()=>{
+        service_swiper_slide.removeClass("swiper-slide-active");
+        service_swiper_slide.eq(0).addClass("swiper-slide-active");
+      },1000);
+    }
     if (mainSwiper.realIndex == 0) {
         $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeOut();
         $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeIn();
@@ -250,8 +271,83 @@ function mainSwiper(){
             resourceSwiper.autoplay.start();
           },1100);
         }
+        if (mainSwiper.realIndex == 6) {
+          serviceAction();
+        }
         $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeIn();
         $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeOut();
+    }
+  }
+
+  function serviceAction(){
+
+    if($(window).width()>1023){
+      pcAction();
+    }else{
+      mbAction();
+    }
+
+    $(window).on("resize",function(){
+      if($(window).width()>1023){
+        pcAction();
+      }else{
+        mbAction();
+      }
+    });
+
+    function pcAction(){
+      $(".service_swiper_wrap").addClass("pcstop");
+        if(serviceSwiper !== null){
+          serviceSwiper.destroy();
+          serviceSwiper = null;
+          console.log(serviceSwiper);
+        }
+        if(intervalTime){
+          clearInterval(intervalTime);
+          intervalTime = 0;
+          if($(window).width()<=1023){
+            addIndex = 0;
+          }
+        } 
+        intervalTime = setInterval(()=>{
+          addAction();
+        },2200);
+        
+				function addAction(){
+					if(addIndex > service_swiper_length - 1){
+						addIndex = 0;
+					}
+					service_swiper_slide.removeClass("swiper-slide-active");
+					service_swiper_slide.eq(addIndex).addClass("swiper-slide-active");
+					addIndex++;
+				}
+    }
+
+    function mbAction(){
+      /* if(intervalTime){
+        clearInterval(intervalTime);
+        intervalTime = 0;
+      } */
+      $(".service_swiper_wrap").removeClass("pcstop");
+      if(intervalTime){
+        clearInterval(intervalTime);
+        addIndex = 0;
+        intervalTime = 0;
+        setTimeout(()=>{
+          service_swiper_slide.removeClass("swiper-slide-active");
+          service_swiper_slide.eq(0).addClass("swiper-slide-active");
+        },1000);
+      }
+      serviceSwiper = new Swiper('.service_swiper_wrap',{
+        speed : 1000,
+        slidesPerView: "auto",
+        centeredSlides: true,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+      });
+      // serviceSwiper.autoplay.start();
     }
   }
 
