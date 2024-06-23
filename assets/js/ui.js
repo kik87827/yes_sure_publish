@@ -288,27 +288,32 @@ function mainSwiper(){
     }
 
     $(window).on("resize",function(){
-      if($(window).width()>1023){
-        pcAction();
-      }else{
-        mbAction();
-      }
+      
+      setTimeout(()=>{
+        if(serviceSwiper !== null){
+          serviceSwiper.destroy();
+          serviceSwiper = null;
+        }
+        if(intervalTime){
+          clearInterval(intervalTime);
+          addIndex = 0;
+          intervalTime = 0;
+        }
+        service_swiper_slide.removeClass("swiper-slide-active");
+        service_swiper_slide.eq(0).addClass("swiper-slide-active");
+        if($(window).width()>1023){
+          pcAction();
+        }else{
+          mbAction();
+        }
+      },100);
     });
 
     function pcAction(){
       $(".service_swiper_wrap").addClass("pcstop");
-        if(serviceSwiper !== null){
-          serviceSwiper.destroy();
-          serviceSwiper = null;
-          console.log(serviceSwiper);
-        }
-        if(intervalTime){
-          clearInterval(intervalTime);
-          intervalTime = 0;
-          if($(window).width()<=1023){
-            addIndex = 0;
-          }
-        } 
+        
+        /* service_swiper_slide.removeClass("swiper-slide-active");
+        service_swiper_slide.eq(0).addClass("swiper-slide-active"); */
         intervalTime = setInterval(()=>{
           addAction();
         },2200);
@@ -329,21 +334,13 @@ function mainSwiper(){
         intervalTime = 0;
       } */
       $(".service_swiper_wrap").removeClass("pcstop");
-      if(intervalTime){
-        clearInterval(intervalTime);
-        addIndex = 0;
-        intervalTime = 0;
-        setTimeout(()=>{
-          service_swiper_slide.removeClass("swiper-slide-active");
-          service_swiper_slide.eq(0).addClass("swiper-slide-active");
-        },1000);
-      }
+      
       serviceSwiper = new Swiper('.service_swiper_wrap',{
         speed : 1000,
         slidesPerView: "auto",
         centeredSlides: true,
         autoplay: {
-          delay: 2000,
+          delay: 2200,
           disableOnInteraction: false,
         },
       });
