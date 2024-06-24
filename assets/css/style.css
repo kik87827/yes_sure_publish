@@ -16,7 +16,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 html,body{height: 100%;}
 
 .front_body{}
-/* .main_body{position:relative;overflow:hidden;} */
+.main_body{position:relative;overflow:hidden;}
 .page_wrap{}
 .page_header{position:fixed;top:0;left:0;width:100%;z-index:20;}
 .nav_group{}

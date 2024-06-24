@@ -114,15 +114,7 @@ function mainSwiper(){
     mainSwiper = new Swiper('.main_swpier_container', {
         direction: 'vertical',
         freeMode: true, // 자유 모드 설정
-        freeModeSticky: false, // 자유 모드일 때 슬라이드가 제자리에 붙는 것을 방지
-        freeModeMomentum: true, // 관성 스크롤링 활성화
-        freeModeMomentumRatio: 1, // 관성 스크롤링 비율 설정
-
-        touchMoveStopPropagation: true, // 터치 이동 시 이벤트 전파 방지
-        preventClicks: true, // 클릭 이벤트 전파 방지
-        preventClicksPropagation: true, // 클릭 이벤트 전파 방지
-
-        resistanceRatio: 0,
+        freeModeSticky: false,
         slidesPerView: "auto",
         autoHeight : true,
         speed : 1000,
@@ -184,6 +176,7 @@ function mainSwiper(){
     }else{
       // mcScrollCheck(thisEvent);
     }
+    e.stopPropagation();
   });
   
   // btn event
