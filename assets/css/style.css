@@ -64,7 +64,7 @@ html,body{height: 100%;}
 .parking_scene{display:flex;align-items: center; justify-content: center; min-height:calc(var(--vh, 1vh) * 100);}
 .main_scene.scroll_mc .scene_contents{}
 .main_scene .bg{position:absolute;top:0;left:0;width:100%;height:100%;}
-.scene_contents{width:100%;box-sizing: border-box; text-align: center;position:relative;overflow:hidden;overflow-y:auto;height:calc(var(--vh, 1vh) * 100);outline:0;}
+.scene_contents{width:100%;box-sizing: border-box; text-align: center;position:relative;overflow:hidden;overflow-y:auto;height:calc(var(--vh, 1vh) * 100);}
 .scrollmode .scene_contents{overflow:visible;height:auto;}
 .scrollmode .main_scene.mc_01 .scene_contents{height:calc(var(--vh, 1vh) * 100);}
 .scrollmode.main_swpier_container.swiper > .swiper-wrapper > .swiper-slide{overflow:visible;height:auto;}

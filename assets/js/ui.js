@@ -148,7 +148,6 @@ function mainSwiper(){
   }); */
 
   screenAction();
-  heightCheck();
 
   window.addEventListener("resize",()=>{
       
@@ -161,7 +160,7 @@ function mainSwiper(){
     scrollModeCheck();
   }); */
   window.addEventListener("resize",()=>{
-      heightCheck();
+      
   });
   /* $(".scene_contents").attr("tabindex",0); */
   $(".scene_contents").on("wheel scroll",function(e){
@@ -207,39 +206,6 @@ function mainSwiper(){
       mainSwiper.slideTo(9,1000);
     }
   });
-
-  function heightCheck(){
-      /* let header_wrap_height = 0;
-      if(!!header_wrap){
-          header_wrap_height = header_wrap.getBoundingClientRect().height;
-      }
-      if(!!check_height){
-          check_height.forEach((item)=>{
-              if(item.getBoundingClientRect().height>= document.documentElement.clientHeight - header_wrap_height){
-                  item.classList.add("overHeight");
-              }else{
-                  item.classList.remove("overHeight");
-              }
-          });
-          let overHeightItem = document.querySelectorAll(".overHeight");
-          if(overHeightItem.length>0){
-              mv_container.classList.add("scrollmode");
-              mainSwiper.params.freeMode.enabled = true;
-              mainSwiper.params.speed = 0;
-          }else{
-              mv_container.classList.remove("scrollmode");
-              mainSwiper.params.freeMode.enabled = false;
-              mainSwiper.params.speed = 1000;
-          }
-          if(window.innerWidth < 1024){
-              mv_container.classList.add("scrollmode");
-              mainSwiper.params.freeMode.enabled = true;
-          }
-          mainSwiper.update();
-      } */
-
-      
-  }
 
   function screenAction(){
 
