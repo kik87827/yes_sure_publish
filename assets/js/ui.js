@@ -1,11 +1,18 @@
 window.addEventListener("DOMContentLoaded", () => {
   commonInit();
+  setVhProperty();
 });
 window.addEventListener("load", () => {
 });
 
 $(function() {
 })
+
+
+function setVhProperty() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
 
 /**
  * device check
@@ -89,7 +96,7 @@ function siblings(t) {
 
 
 function mainSwiper(){
-    
+  let touchstart = "ontouchstart" in window;
   const front_html = $("html");
   const front_body = $(".front_body");
   const main_swpier_container = $(".main_swpier_container");
@@ -100,26 +107,39 @@ function mainSwiper(){
   let serviceSwiper = null;
   let service_swiper_slide = $(".service_swiper_wrap .swiper-slide");
   let service_swiper_length = service_swiper_slide.length;
+  let mainSwiper = null;
 
-  let mainSwiper = new Swiper('.main_swpier_container', {
-      direction: 'vertical',
-      mousewheel: true,
-      freeMode: false,
-      slidesPerView: "auto",
-      autoHeight : true,
-      speed : 1000,
-      initialSlide : 0,
-      on : {
-          setTranslate: function (translate) {
-              /* if(window.innerWidth>=1024){return;}
-              if(translate.translate < 0){
-                header_wrap.classList.add("scroll");
-            }else{
-                  header_wrap.classList.remove("scroll");
-              } */
-          },
-      }
-  });
+  if(touchstart){
+    main_swpier_container.addClass("scrollmode");
+    mainSwiper = new Swiper('.main_swpier_container', {
+        direction: 'vertical',
+        freeMode: true, // 자유 모드 설정
+        freeModeSticky: false, // 자유 모드일 때 슬라이드가 제자리에 붙는 것을 방지
+        freeModeMomentum: true, // 관성 스크롤링 활성화
+        freeModeMomentumRatio: 1, // 관성 스크롤링 비율 설정
+
+        touchMoveStopPropagation: true, // 터치 이동 시 이벤트 전파 방지
+        preventClicks: true, // 클릭 이벤트 전파 방지
+        preventClicksPropagation: true, // 클릭 이벤트 전파 방지
+
+        resistanceRatio: 0,
+        slidesPerView: "auto",
+        autoHeight : true,
+        speed : 1000,
+        initialSlide : 0
+    });
+  }else{
+    mainSwiper = new Swiper('.main_swpier_container', {
+        direction: 'vertical',
+        mousewheel: true,
+        freeMode: false,
+        slidesPerView: "auto",
+        autoHeight : true,
+        speed : 1000,
+        initialSlide : 0
+    });
+  }
+  
   let resourceSwiper = new Swiper('.hor_swiper_wrap',{
     speed : 1000,
     // autoHeight : true,
@@ -151,7 +171,7 @@ function mainSwiper(){
   window.addEventListener("resize",()=>{
       heightCheck();
   });
-  $(".scene_contents").attr("tabindex",0);
+  /* $(".scene_contents").attr("tabindex",0); */
   $(".scene_contents").on("wheel scroll",function(e){
     let thisEvent = $(this);
     if(e.type === "wheel"){
@@ -224,6 +244,8 @@ function mainSwiper(){
           }
           mainSwiper.update();
       } */
+
+      
   }
 
   function screenAction(){
@@ -359,6 +381,7 @@ function mainSwiper(){
   }
 
   function mcWheelUpCheck(target){
+    if(touchstart){return;}
     let $this = target;
     if($this.scrollTop() === 0){
       mainSwiper.slidePrev(1000);
@@ -366,6 +389,7 @@ function mainSwiper(){
   }
 
   function mcWheelDownCheck(target){
+    if(touchstart){return;}
     let $this = target;
     if ($this[0].scrollHeight - $this.scrollTop() === $this.outerHeight()) {
       mainSwiper.slideNext(1000);
@@ -410,3 +434,21 @@ function sceneTab(){
     });
   });
 }
+
+
+function faqToggle(){
+  $(function(){
+    let scene_toggle_bar = $(".scene_toggle_bar");
+    scene_toggle_bar.on("click",function(e){
+      e.preventDefault();
+      let thisDom = $(this);
+      let thisDomLi = thisDom.closest("li");
+      let thisDomUl = thisDom.closest(".scene_toggle_list");
+      let thisDomUlLi = thisDomUl.children("li").not(thisDomLi);
+
+      thisDomUlLi.removeClass("active");
+      
+      thisDomLi.toggleClass("active");
+    });
+  });
+} 
