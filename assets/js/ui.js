@@ -96,11 +96,8 @@ function siblings(t) {
 
 
 function mainSwiper() {
-
-  const front_html = document.querySelector("html");
-  const mv_container = document.querySelector(".mv_container");
-
-  let mainSwiper = new Swiper('.mv_container', {
+  let mainSwiper = null;
+  let pluginOption = {
     direction: 'vertical',
     mousewheel: {
       forceToAxis : true,
@@ -111,13 +108,35 @@ function mainSwiper() {
     autoHeight: true,
     speed: 1000,
     initialSlide: 0
+  }
+
+  mainSwiper = new Swiper('.mv_container',pluginOption);
+  
+  //sceneInitCheck();
+
+  $(window).on("resize",function(){
+      sceneCheck();
   });
 
 
-  window.addEventListener("resize", () => {
-  });
-
-  mainSwiper.on("slideChange", () => {
-   
-  });
+  function sceneCheck(){
+    let scene_contents = $(".scene_contents");
+    let check_count = 0;
+    $(".front_body").removeClass("scroll_mode");
+    scene_contents.each(function(){
+      if($(this).outerHeight(true) >= $(window).height()){
+        check_count++;
+      }
+    });
+    if(check_count>0){
+      if(!!mainSwiper){
+        mainSwiper.destroy();
+      }
+      $(".front_body").addClass("scroll_mode");
+    }else{
+      if(!mainSwiper){
+        mainSwiper = new Swiper('.mv_container',pluginOption);
+      }
+    }
+  }
 }

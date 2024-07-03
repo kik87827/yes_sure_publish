@@ -13,9 +13,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
     box-shadow: inset 0px 0px 5px transparent;
 }
 
-html, body.main_body{
-    height: 100%;
-}
+
 .page_wrap {
     min-height: calc(var(--vh, 1vh) * 100); min-width:280px; position:relative;
 }
@@ -23,8 +21,8 @@ html, body.main_body{
     height: calc(var(--vh, 1vh) * 100);
 }
 .front_body.main {
-    overflow: hidden;
-  }
+  overflow: hidden; position:relative;
+}
   .front_body.main .header_wrap {
     position: fixed;
     top: 0;
@@ -84,3 +82,14 @@ html, body.main_body{
 .main_scene.mc_09 .bg{background-color:#000;}
 .main_scene.mc_10 .bg,
 .main_scene.mc_11 .bg{background-color:#fff;} 
+
+
+/* scroll mode */
+
+.front_body.main.scroll_mode{
+  overflow: visible;
+}
+.front_body.main.scroll_mode .mv_container{height:auto !important;}
+.front_body.main.scroll_mode .swiper-wrapper{height:auto !important; transform:none !important;}
+.front_body.main.scroll_mode .swiper-slide{overflow: visible !important;}
+.front_body.main.scroll_mode .main_scene{height:auto !important;}
