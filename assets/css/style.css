@@ -17,3 +17,19 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 
 .front_body{}
 .main_body{position:relative;overflow:hidden;}
+
+
+.main_scene{position:relative;display:flex;align-items: center;justify-content: center;min-height:100vh;}
+.main_scene .bg{display:block;width:100%;height:100%;position:absolute;top:0;left:0;}
+.scene_contents{position:relative;}
+.main_scene.mc_01 .bg{background-color:#1E60E4;}
+.main_scene.mc_02 .bg{background-color:#fff;}
+.main_scene.mc_03 .bg,
+.main_scene.mc_04 .bg{background-color:#2965DF;}
+.main_scene.mc_05 .bg{background-color:#fff;}
+.main_scene.mc_06 .bg,
+.main_scene.mc_07 .bg{background-color:#FFC700;}
+.main_scene.mc_08 .bg{background-color:#fff;}
+.main_scene.mc_09 .bg{background-color:#000;}
+.main_scene.mc_10 .bg,
+.main_scene.mc_11 .bg{background-color:#fff;}
