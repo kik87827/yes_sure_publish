@@ -95,19 +95,29 @@ function siblings(t) {
 }
 
 
-function mainSwiper(){
-  let mainSwiper = null;
+function mainSwiper() {
 
-  mainSwiper = new Swiper('.main_swpier_container', {
-      direction: 'vertical',
-      mousewheel: {
-        forceToAxis : true,
-        sensitivity : 0
-      },
-      freeMode: false,
-      slidesPerView: "auto",
-      autoHeight : true,
-      speed : 1000,
-      initialSlide : 0
+  const front_html = document.querySelector("html");
+  const mv_container = document.querySelector(".mv_container");
+
+  let mainSwiper = new Swiper('.mv_container', {
+    direction: 'vertical',
+    mousewheel: {
+      forceToAxis : true,
+      sensitivity : 0
+    },
+    freeMode: false,
+    slidesPerView: "auto",
+    autoHeight: true,
+    speed: 1000,
+    initialSlide: 0
+  });
+
+
+  window.addEventListener("resize", () => {
+  });
+
+  mainSwiper.on("slideChange", () => {
+   
   });
 }

@@ -13,9 +13,60 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
     box-shadow: inset 0px 0px 5px transparent;
 }
 
+html, body.main_body{
+    height: 100%;
+}
+.page_wrap {
+    min-height: calc(var(--vh, 1vh) * 100); min-width:280px; position:relative;
+}
+.swiper.main_swpier_container {
+    height: calc(var(--vh, 1vh) * 100);
+}
+.front_body.main {
+    overflow: hidden;
+  }
+  .front_body.main .header_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .page_wrap {
+    min-width: 280px; /* display:flex;flex-direction: column; */ /* overflow-x:hidden; */
+    position: relative; /* min-height:100vh; */
+  }
+  
+  /* main */
+  html.mainfront, html.mainfront body {
+    height: 100%;
+  }
+  html.mainfront .page_wrap {
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  .swiper.mv_container {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  .swiper.mv_container > .swiper-wrapper > .swiper-slide {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .main_scene {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+  
+
+.swiper.main_swpier_container .swiper-slide{position:relative;overflow:hidden;}
 
 
-.front_body{}
 .main_body{position:relative;overflow:hidden;}
 
 
@@ -32,4 +83,4 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .main_scene.mc_08 .bg{background-color:#fff;}
 .main_scene.mc_09 .bg{background-color:#000;}
 .main_scene.mc_10 .bg,
-.main_scene.mc_11 .bg{background-color:#fff;}
+.main_scene.mc_11 .bg{background-color:#fff;} 
