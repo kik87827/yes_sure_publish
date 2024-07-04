@@ -171,6 +171,8 @@ function mainSwiper() {
   let mainSwiper = null;
   let touchstart = "ontouchstart" in window;
   let windowWidth = $(window).width();
+  let intervalTime = 0;
+  let addIndex = 0;
   let pluginOption = {
     direction: 'vertical',
     mousewheel: {
@@ -185,6 +187,7 @@ function mainSwiper() {
   }
 
   sceneCheck();
+  screenAction();
 
   // 리사이즈 이벤트 처리
   $(window).on('orientationchange', function() {
@@ -194,12 +197,37 @@ function mainSwiper() {
         $("html,body").scrollTop(0);
       }
   });
- /*  $(window).on("resize",function(){
-    if(touchstart){
-      $("html,body").scrollTop(0);
-      console.log('resize')
+  mainSwiper.on("slideChange",()=>{
+      screenAction();
+  });
+  // btn event
+  $(".nav_top_logo_link").on("click",function(e){
+    e.preventDefault();
+    mainSwiper.slideTo(0,1000);
+  });
+  $(".btn_bottom_scroll").on("click",function(e){
+    e.preventDefault();
+    mainSwiper.slideTo(1,1000);
+  });
+  $(".btn_top_scroll").on("click",function(e){
+    e.preventDefault();
+    mainSwiper.slideTo(0,1000);
+  });
+  $(".nav_top_item , .nav_bottom_item").on("click",function(e){
+    let thisIndex = $(this).closest("li").index();
+    e.preventDefault();
+    if(thisIndex === 0){
+      mainSwiper.slideTo(1,1000);
+    }else if(thisIndex === 1){
+      mainSwiper.slideTo(7,1000);
+    }else if(thisIndex === 2){
+      mainSwiper.slideTo(8,1000);
+    }else if(thisIndex === 3){
+      mainSwiper.slideTo(9,1000);
+    }else if(thisIndex === 4){
+      mainSwiper.slideTo(10,1000);
     }
-  }); */
+  });
 
 
   function sceneCheck(){
@@ -225,6 +253,37 @@ function mainSwiper() {
         $("html,body").scrollTop(0);
         mainSwiper = new Swiper('.mv_container',pluginOption);
       }
+    }
+  }
+  function screenAction(){
+    $(".nav_top_list_zone").removeClass("skin2");
+    $(".nav_top_item,.nav_bottom_item").removeClass("active");
+    if (mainSwiper.realIndex == 0) {
+        $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeOut();
+        $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeIn();
+    }else if(mainSwiper.realIndex == 10){
+      $(".btn_bottom_scroll_wrap").fadeOut();
+      if($(window).width()>1023){
+        $(".nav_top_list_zone").addClass("skin2").fadeIn();
+        $(".nav_bottom_list_zone ,.btn_top_scroll_wrap").fadeOut();
+        $(".nav_top_item").last().addClass("active");
+      }else{
+        $(".nav_bottom_list_zone , .btn_top_scroll_wrap").fadeIn();
+        $(".nav_bottom_item").last().addClass("active");
+      }
+      
+    }else{
+        if (mainSwiper.realIndex >= 1 && mainSwiper.realIndex <= 6) {
+          $(".nav_bottom_item").eq(0).addClass("active");
+        }else if(mainSwiper.realIndex == 7){
+          $(".nav_bottom_item").eq(1).addClass("active");
+        }else if(mainSwiper.realIndex == 8){
+          $(".nav_bottom_item").eq(2).addClass("active");
+        }else if(mainSwiper.realIndex == 9){
+          $(".nav_bottom_item").eq(3).addClass("active");
+        }
+        $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeIn();
+        $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeOut();
     }
   }
 }
