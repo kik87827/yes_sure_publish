@@ -30,19 +30,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
     width: 100%;
   }
   
-  .page_wrap {
-    min-width: 280px; /* display:flex;flex-direction: column; */ /* overflow-x:hidden; */
-    position: relative; /* min-height:100vh; */
-  }
   
   /* main */
-  html.mainfront, html.mainfront body {
-    height: 100%;
-  }
-  html.mainfront .page_wrap {
-    min-height: calc(var(--vh, 1vh) * 100);
-  }
-  
   .swiper.mv_container {
     height: calc(var(--vh, 1vh) * 100);
   }

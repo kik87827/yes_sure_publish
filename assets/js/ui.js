@@ -95,8 +95,10 @@ function siblings(t) {
 }
 
 
-function mainSwiper() {
+function mainSwiperBack() {
   let mainSwiper = null;
+  let touchstart = "ontouchstart" in window;
+  //let windowWidth = $(window).width();
   let pluginOption = {
     direction: 'vertical',
     mousewheel: {
@@ -114,9 +116,28 @@ function mainSwiper() {
   
   //sceneInitCheck();
 
-  $(window).on("resize",function(){
+  /* $(window).on("resize",function(){
       sceneCheck();
+
+      if(windowWidth !== $(window).width()){
+        updateDevice();
+      }
+      windowWidth = $(window).width();
   });
+  $(".mv_container").on("refresh",function(){
+    if(!!mainSwiper){
+      mainSwiper.update();
+    }
+  }); */
+
+  function updateDevice(){
+    console.log('updateDevice');
+    if(!touchstart){return;}
+    if(!!mainSwiper){
+      mainSwiper.destroy();
+      mainSwiper = new Swiper('.mv_container',pluginOption);
+    }
+  }
 
 
   function sceneCheck(){
@@ -135,6 +156,73 @@ function mainSwiper() {
       $(".front_body").addClass("scroll_mode");
     }else{
       if(!mainSwiper){
+        mainSwiper = new Swiper('.mv_container',pluginOption);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+function mainSwiper() {
+  let mainSwiper = null;
+  let touchstart = "ontouchstart" in window;
+  let windowWidth = $(window).width();
+  let pluginOption = {
+    direction: 'vertical',
+    mousewheel: {
+      forceToAxis : true,
+      sensitivity : 0
+    },
+    freeMode: false,
+    slidesPerView: "auto",
+    autoHeight: true,
+    speed: 1000,
+    initialSlide: 0
+  }
+
+  sceneCheck();
+
+  // 리사이즈 이벤트 처리
+  $(window).on('orientationchange', function() {
+      console.log('orientationchange');
+      if(touchstart){
+        location.reload();
+        $("html,body").scrollTop(0);
+      }
+  });
+ /*  $(window).on("resize",function(){
+    if(touchstart){
+      $("html,body").scrollTop(0);
+      console.log('resize')
+    }
+  }); */
+
+
+  function sceneCheck(){
+    let scene_contents = $(".scene_contents");
+    let check_count = 0;
+    $(".front_body").removeClass("scroll_mode");
+    if($(window).width()>$(window).height() && touchstart){
+      $(".front_body").addClass("scroll_mode");
+      return;
+    }
+    scene_contents.each(function(){
+      if($(this).outerHeight(true) >= $(window).height()){
+        check_count++;
+      }
+    });
+    if(check_count>0){
+      if(!!mainSwiper){
+        mainSwiper.destroy();
+      }
+      $(".front_body").addClass("scroll_mode");
+    }else{
+      if(!mainSwiper){
+        $("html,body").scrollTop(0);
         mainSwiper = new Swiper('.mv_container',pluginOption);
       }
     }

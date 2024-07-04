@@ -10,7 +10,8 @@
 	<link href="./assets/css/reset.css" rel="stylesheet">
 	<link href="./assets/css/style.css" rel="stylesheet">
 	<script src="./assets/js/jquery-3.4.1.min.js"></script>
-	<script src="./assets/js/swiper.min.js"></script>
+	<!-- <script src="./assets/js/swiper.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script src="./assets/js/ui.js"></script>
 	<title></title>
 </head>
@@ -36,7 +37,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide">
+					<!-- <div class="swiper-slide">
 						<div class="main_scene mc_03">
 							<div class="bg"></div>
 							<div class="scene_contents">
@@ -99,7 +100,7 @@
 								scene_10
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="swiper-slide">
 						<div class="main_scene mc_11">
 							<div class="bg"></div>
@@ -117,7 +118,7 @@
 			</div>
 
 			<script>
-				$(function(){
+				$(window).on("load",function(){
 					mainSwiper();
 				});
 			</script>
