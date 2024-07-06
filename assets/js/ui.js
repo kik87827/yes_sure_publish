@@ -344,7 +344,6 @@ function mainSwiper() {
     $(".btn_top_scroll_wrap").not(".clone").removeClass("pos2");
     $(".nav_mobile_call_wrap").addClass("none");
     $(".btn_nav_mobile_call").removeClass("skin2");
-    console.log(mainSwiper.realIndex);
     if (mainSwiper.realIndex == 0) {
         $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeOut();
         $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeIn();
