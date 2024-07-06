@@ -184,12 +184,14 @@ function mainSwiper() {
       forceToAxis : true,
       sensitivity : 0
     },
-    freeMode: false,
     slidesPerView: "auto",
     autoHeight: true,
     speed: 1000,
     initialSlide: 0
   }
+
+  
+  $(".mc_11").append($(".btn_top_scroll_wrap").clone(true).addClass("clone"));
 
   sceneCheck();
   screenAction();
@@ -205,6 +207,7 @@ function mainSwiper() {
   });
   if(!!mainSwiper){
     mainSwiper.on("slideChange",()=>{
+        //console.log('test change')
         screenAction();
     });
   }else{
@@ -337,51 +340,57 @@ function mainSwiper() {
     if(!mainSwiper){return;}
     $(".nav_top_list_zone").removeClass("skin2");
     $(".nav_bottom_item , .nav_mobile_menu").removeClass("active");
-    $(".nav_top_item,.nav_bottom_item").removeClass("active");
+    $(".nav_top_item,.nav_bottom_item , .nav_mobile_menu").removeClass("active");
+    $(".btn_top_scroll_wrap").not(".clone").removeClass("pos2");
+    $(".nav_mobile_call_wrap").addClass("none");
+    $(".btn_nav_mobile_call").removeClass("skin2");
+    console.log(mainSwiper.realIndex);
     if (mainSwiper.realIndex == 0) {
         $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeOut();
         $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeIn();
+        $(".nav_mobile_call_wrap").removeClass("none");
     }else if(mainSwiper.realIndex == 10){
-      $(".btn_bottom_scroll_wrap").fadeOut();
+      $(".nav_mobile_call_wrap").removeClass("none");
+      $(".btn_bottom_scroll_wrap,.nav_bottom_list_zone").fadeOut();
+      //$(".btn_top_scroll_wrap").addClass("pos2").fadeIn();
+      $(".btn_nav_mobile_call").addClass("skin2");
+      setTimeout(()=>{
+        $(".btn_top_scroll_wrap").not(".clone").hide();
+        $(".btn_top_scroll_wrap.clone").show();
+      },999);
       if($(window).width()>1023){
         $(".nav_top_list_zone").addClass("skin2").fadeIn();
-        $(".nav_bottom_list_zone ,.btn_top_scroll_wrap").fadeOut();
+        $(".nav_bottom_list_zone").fadeOut();
         $(".nav_top_item").last().addClass("active");
       }else{
-        $(".nav_bottom_list_zone , .btn_top_scroll_wrap").fadeIn();
-        $(".nav_bottom_item , .nav_mobile_menu").last().addClass("active");
+        $(".nav_mobile_menu").last().addClass("active");
+        $(".nav_bottom_item").last().removeClass("active");
       }
-      
+      //$(".mc_11").append($(".btn_top_scroll_wrap").addClass("pos2"));
     }else{
-        if (mainSwiper.realIndex >= 1 && mainSwiper.realIndex <= 6) {
-          $(".nav_bottom_item , .nav_mobile_menu").eq(0).addClass("active");
-        }else if(mainSwiper.realIndex == 7){
-          $(".nav_bottom_item , .nav_mobile_menu").eq(1).addClass("active");
-        }else if(mainSwiper.realIndex == 8){
-          $(".nav_bottom_item , .nav_mobile_menu").eq(2).addClass("active");
-        }else if(mainSwiper.realIndex == 9){
-          $(".nav_bottom_item , .nav_mobile_menu").eq(3).addClass("active");
-        }
-        $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeIn();
-        $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeOut();
+      if (mainSwiper.realIndex >= 1 && mainSwiper.realIndex <= 6) {
+        $(".nav_bottom_item , .nav_mobile_menu").eq(0).addClass("active");
+      }else if(mainSwiper.realIndex == 7){
+        $(".nav_bottom_item , .nav_mobile_menu").eq(1).addClass("active");
+      }else if(mainSwiper.realIndex == 8){
+        $(".nav_bottom_item , .nav_mobile_menu").eq(2).addClass("active");
+      }else if(mainSwiper.realIndex == 9){
+        $(".nav_bottom_item , .nav_mobile_menu").eq(3).addClass("active");
+      }
+      $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeIn();
+      $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeOut();
+      $(".btn_top_scroll_wrap.clone").hide();
     }
   }
 
-  function getPosArray() {
-      if(!main_scene){return;}
-      let posArray = [];
-      if(!!main_scene){
-          main_scene.each(function(){
-            let eachTop = $(this).offset().top;
-            posArray.push(eachTop);
-          });
-      }
-      return posArray;
-  }
   function scrollAction() {
     let page_header_height = page_header.outerHeight(true);
     let scrollTop = $(window).scrollTop();
     let contact_in = false;
+    
+    $(".nav_bottom_item , .nav_mobile_menu").removeClass("active");
+    $(".nav_mobile_call_wrap").removeClass("none");
+    $(".btn_nav_mobile_call").removeClass("skin2");
     if(!btnClickIs){
         /* anchor_menu.forEach((item,index) => {
             if(getPosArrayValue[index] - getPosHeight - header_wrapHeight <= window.scrollY){
@@ -394,12 +403,12 @@ function mainSwiper() {
               activeTab(this);
           }
         }); */
-
         if(scrollTop === 0){
           $(".btn_bottom_scroll_wrap").show();
           $(".btn_top_scroll_wrap").hide();
           $(".nav_bottom_list_zone").hide();
           $(".nav_top_list_zone").removeClass("skin2").show();
+          $(".nav_mobile_call_wrap").removeClass("none");
           contact_in = false;
         }else{
           $(".btn_bottom_scroll_wrap").hide();
@@ -408,6 +417,8 @@ function mainSwiper() {
           if(!contact_in){
             $(".nav_top_list_zone").stop().hide();
           }
+          $(".btn_top_scroll_wrap.clone").hide();
+          $(".nav_mobile_call_wrap").addClass("none");
         }
 
         
@@ -433,17 +444,27 @@ function mainSwiper() {
           //console.log(".mc_10");
           anchor_menu.removeClass("active");
           $(".nav_bottom_item , .nav_mobile_menu").eq(3).addClass("active");
+
         }
         
         if($(window).scrollTop() >= $(".mc_11").offset().top && $(window).scrollTop() <= $(".mc_11").offset().top + $(".mc_11").outerHeight(true)){
           //console.log(".mc_11");
           anchor_menu.removeClass("active");
+
+          
+
           $(".nav_bottom_list_zone").hide();
           $(".nav_bottom_item , .nav_mobile_menu , .nav_top_item").eq(4).addClass("active");
           contact_in = true;
           if(contact_in){
             $(".nav_top_list_zone").addClass("skin2").show();
           }
+
+          
+          $(".btn_top_scroll_wrap").not(".clone").hide();
+          $(".btn_top_scroll_wrap.clone").show();
+          $(".nav_mobile_call_wrap").removeClass("none");
+          $(".btn_nav_mobile_call").addClass("skin2");
         }
 
         /* if($(window).scrollTop() >= $(".mc_02").offset().top){
