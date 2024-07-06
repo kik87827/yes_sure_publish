@@ -131,7 +131,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 @media (max-width:1919px){
   .nav_top_list_wrap{padding:0 56px;}
 }
-@media (max-height:945px){
+@media (max-height:940px){
   .nav_top_list_wrap{min-height:105px;}
   .btn_top_scroll,
   .btn_bottom_scroll{width:64.8px;height:64.8px}
@@ -139,7 +139,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   .btn_bottom_scroll_wrap{bottom:60px;}
   .nav_bottom_list{padding:18px 60px;}
 }
-@media (max-height:945px) and (max-width:1919px){
+@media (max-height:940px) and (max-width:1919px){
   .nav_top_logo_link{width:112px;height:53.6px;}
 }
 
