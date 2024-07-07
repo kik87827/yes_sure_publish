@@ -364,7 +364,7 @@ function mainSwiper() {
   }
   function screenAction(){
     if(!mainSwiper){return;}
-    console.log(mainSwiper.realIndex);
+    /* console.log(mainSwiper.realIndex); */
     $(".nav_top_list_zone").removeClass("skin2");
     $(".nav_bottom_item , .nav_mobile_menu").removeClass("active");
     $(".nav_top_item,.nav_bottom_item , .nav_mobile_menu").removeClass("active");

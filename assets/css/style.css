@@ -14,6 +14,16 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 
 
+
+/* common */
+.pc_img{display:inline !important;}
+.mb_img{display:none !important;}
+@media (max-width:1023px){
+  .pc_img{display:none !important;}
+  .mb_img{display:inline !important;}
+}
+
+
 .page_wrap {
     min-height: calc(var(--vh, 1vh) * 100); min-width:280px; position:relative;
 }
@@ -88,7 +98,6 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .main_scene{position:relative;display:flex;align-items: center;justify-content: center;min-height:100vh;}
 .main_scene .bg{display:block;width:100%;height:100%;position:absolute;top:0;left:0;}
 .scene_contents{position:relative;width:100%;}
-.main_scene.mc_01 .bg{background-color:#1E60E4;}
 .main_scene.mc_02 .bg{background-color:#fff;}
 .main_scene.mc_03 .bg,
 .main_scene.mc_04 .bg{background-color:#2965DF;}
@@ -111,7 +120,6 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .btn_top_scroll:after{display:block;content:'';width:34px;height:30px;background:url("../images/scroll_pointer2.svg") no-repeat 50% 50%/100% auto;}
 
 
-
 /* scroll mode */
 
 .front_body.main.scroll_mode{
@@ -123,6 +131,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .front_body.main.scroll_mode .main_scene{height:auto !important;}
 @media (max-width:1023px){
  .front_body.main.scroll_mode .scene_form_container{padding:70px 20px;}
+ 
 }
 
 
@@ -290,6 +299,66 @@ textarea.sf_ta{width:100%; height:96px; font-size:16px; letter-spacing: -1px; bo
 
   .footer_item_list{gap:10px 17px;}
 }
+
+
+/* gate */
+.main_scene.mc_01 .bg{background:#1E60E4 url("../images/gate_pc_bg.jpg") no-repeat 100% 100%/44.271vw auto;}
+.main_scene.mc_01{ /* min-height:calc(100vh - 120px); align-items: flex-end; */ }
+.main_scene.mc_01 .bg{}
+.intro_gate_wrap{width:100%; max-width:1920px; margin:0 auto; box-sizing: border-box; padding:0 0 0 14.583vw}
+.intro_main_copy_group{}
+.intro_main_copy{font-size:4.583vw; font-weight:700; color:#fff; line-height:1.3; letter-spacing: -1px;}
+.intro_main_copy_group{position:relative;display:inline-block;}
+img.intro_obj{vertical-align: top; position:absolute;top:-4.583vw;left:-13.229vw;}
+img.intro_obj.pc_img{max-width:14.896vw;}
+.intro_gate_wrap{}
+.intro_main_copy_emp{margin-top:1.563vw;}
+.intro_main_copy_emp strong{display:inline-block;color:#000; border-radius:100px; padding:0.729vw 1.875vw; line-height:1; font-weight:700; font-size:3.542vw; background:#FFC700;}
+.intro_else_copy{margin-top:3.125vw;font-size:1.25vw; color:#fff;}
+.intro_mb_logo{display:none;}
+.intro_mb_logo > img{max-width:80px;}
+
+@media (min-width:1921px){
+  .main_scene.mc_01 .bg{background-size:850px auto;}
+  .intro_gate_wrap{padding:0 0 0 280px}
+  .intro_main_copy{font-size:88px;}
+  img.intro_obj{top:-50px;left:-100px;}
+  img.intro_obj.pc_img{max-width:286px;top: -88px; left: -254px;}
+  .intro_main_copy_emp{margin-top:30px;}
+  .intro_main_copy_emp strong{padding:14px 36px;font-size:68px;}
+  .intro_else_copy{margin-top:60px;font-size:24px;}
+}
+@media (max-width:1023px){
+  .main_scene.mc_01{align-items: flex-start; justify-content: flex-start;}
+  .main_scene.mc_01 .bg{background:#1E60E4 url("../images/gate_mb_bg.jpg") no-repeat 50% 100%/360px auto;}
+  .intro_mb_logo{display:block;margin-bottom:8px;}
+  img.intro_obj.mb_img{max-width:90px;}
+  .intro_gate_wrap{padding:146px 40px 0;}
+  .intro_main_copy{font-size:36px;}
+  .intro_main_copy_emp strong{font-size:32px;padding:8px 18px;}
+  .intro_main_copy_emp{margin-top:8px;}
+  .intro_else_copy{font-size:12px; margin-top:30px;}
+  img.intro_obj.mb_img{left:auto;top:-46px;right:-10px;}
+}
+@media (max-width:450px){
+  .intro_mb_logo{margin-bottom:2.222vw;}
+  .main_scene.mc_01 .bg{background-size:100% auto;}
+  img.intro_obj.mb_img{max-width:25vw;}
+  .intro_gate_wrap{padding:40.556vw 11.111vw 0;}
+  .intro_main_copy{font-size:10vw;}
+  .intro_main_copy_emp strong{font-size:10vw;padding:2.222vw 5vw;}
+  .intro_main_copy_emp{margin-top:2.222vw;}
+  .intro_else_copy{margin-top:8.333vw; font-size:3.333vw;}
+  img.intro_obj.mb_img{top:-12.778vw;right:-2.778vw;}
+}
+@media (max-width:1023px) and (orientation: landscape) {
+ .intro_gate_wrap{padding-top:52px;}
+ .main_scene.mc_01 .bg{background-position:100% 100%;}
+ img.intro_obj.mb_img{top:-10px;right:-50px;}
+}
+/* // gate */
+
+
 
 
 /* faq */
