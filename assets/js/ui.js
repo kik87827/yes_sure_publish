@@ -189,7 +189,15 @@ function mainSwiper() {
     speed: 1000,
     initialSlide: 0
   }
-
+  /* let faqscroll = new Swiper(".faqscroll", {
+    direction: "vertical",
+    slidesPerView: "auto",
+    freeMode: true,
+    scrollbar: {
+      el: ".faqscroll .swiper-scrollbar",
+    },
+    mousewheel: true,
+  }); */
   
   $(".mc_11").append($(".btn_top_scroll_wrap").clone(true).addClass("clone"));
 
@@ -297,6 +305,18 @@ function mainSwiper() {
     e.preventDefault();
     $(".btn_nav_mobile_close").trigger("click");
   });
+  $(".scene_toggle_list_wrap").on("mousewheel touchmove",function(e){
+    if($(window).width()<=1023){
+      if($(".scene_toggle_list").outerHeight(true) > 330){
+        e.stopPropagation();
+      }
+    }else{
+      if($(".scene_toggle_list").outerHeight(true) > $(window).height() - 455){
+        e.stopPropagation();
+      }
+    }
+    
+  });
   $(window).on("resize",function(){
     if (windowWidth !== $(window).width()) {
       sceneCheck();
@@ -312,6 +332,7 @@ function mainSwiper() {
   $(window).on("scrollend",function(){
     scrollEndAction();
   });
+
 
 
   function sceneCheck(){
@@ -520,3 +541,22 @@ function formLayout(){
     scene_form_item_key.css({"flex-basis" : Math.max.apply(null,maxkey) });
   }
 }
+
+
+
+function faqToggle(){
+  $(function(){
+    let scene_toggle_bar = $(".scene_toggle_bar");
+    scene_toggle_bar.on("click",function(e){
+      e.preventDefault();
+      let thisDom = $(this);
+      let thisDomLi = thisDom.closest("li");
+      let thisDomUl = thisDom.closest(".scene_toggle_list");
+      let thisDomUlLi = thisDomUl.children("li").not(thisDomLi);
+
+      thisDomUlLi.removeClass("active");
+      
+      thisDomLi.toggleClass("active");
+    });
+  });
+} 

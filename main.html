@@ -10,8 +10,8 @@
 	<link href="./assets/css/reset.css" rel="stylesheet">
 	<link href="./assets/css/style.css" rel="stylesheet">
 	<script src="./assets/js/jquery-3.4.1.min.js"></script>
-	<!-- <script src="./assets/js/swiper.min.js"></script> -->
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="./assets/js/swiper.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
 	<script src="./assets/js/ui.js"></script>
 	<title></title>
 </head>
@@ -143,7 +143,30 @@
 						<div class="main_scene mc_10">
 							<div class="bg"></div>
 							<div class="scene_contents">
-								<p style="text-align: center;">faq</p>
+								<!-- faq -->
+								<div class="scene_list_container">
+									<div class="scene_list_title_row">
+										<h3 class="scene_obj_title"><span class="scene_obj_title_text">FAQ</span></h3>
+										<p class="scene_form_title_sub">궁금증, 잠들기 전까지 해결해야 하니까.</p>
+									</div>
+									<div class="scene_list_contents_row">
+										<div class="scene_toggle_list_wrap">
+											<ul class="scene_toggle_list">
+												<li class="active">
+													<a href="#" class="scene_toggle_bar">
+														<div class="scene_toggle_bar_text">소액보험플랫폼은 어떤 사업 이점이 있나요?</div>
+													</a>
+													<div class="scene_toggle_contents">
+														<div class="scene_toggle_contents_inner">
+															국내 소액단기 보험은 제도가 시행되었으나 인가기준, 규제, 비용 등의 이슈로 아직까지 설립신청 및 승인된 회사가 없으며, 설립을 검토하고 있는 회사에는 자본금 외 시스템 구축비용이 큰 부담으로 작용하고 있습니다. 소액보험플랫폼 Yes,sure는 단기간 내 저렴한 운영 비용으로 보험사업을 영위할 수 있는 최적의 플랫폼입니다.
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- // faq -->
 							</div>
 						</div>
 					</div>
@@ -260,6 +283,7 @@
 				$(window).on("load",function(){
 					mainSwiper();
 					formLayout();
+					faqToggle();
 				});
 			</script>
 		</main>
