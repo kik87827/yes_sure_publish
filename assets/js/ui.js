@@ -95,73 +95,6 @@ function siblings(t) {
 }
 
 
-function mainSwiperBack() {
-  let mainSwiper = null;
-  let touchstart = "ontouchstart" in window;
-  //let windowWidth = $(window).width();
-  let pluginOption = {
-    direction: 'vertical',
-    mousewheel: {
-      forceToAxis : true,
-      sensitivity : 0
-    },
-    freeMode: false,
-    slidesPerView: "auto",
-    autoHeight: true,
-    speed: 1000,
-    initialSlide: 0
-  }
-
-  mainSwiper = new Swiper('.mv_container',pluginOption);
-  
-  //sceneInitCheck();
-
-  /* $(window).on("resize",function(){
-      sceneCheck();
-
-      if(windowWidth !== $(window).width()){
-        updateDevice();
-      }
-      windowWidth = $(window).width();
-  });
-  $(".mv_container").on("refresh",function(){
-    if(!!mainSwiper){
-      mainSwiper.update();
-    }
-  }); */
-
-  function updateDevice(){
-    console.log('updateDevice');
-    if(!touchstart){return;}
-    if(!!mainSwiper){
-      mainSwiper.destroy();
-      mainSwiper = new Swiper('.mv_container',pluginOption);
-    }
-  }
-
-
-  function sceneCheck(){
-    let scene_contents = $(".scene_contents");
-    let check_count = 0;
-    $(".front_body").removeClass("scroll_mode");
-    scene_contents.each(function(){
-      if($(this).outerHeight(true) >= $(window).height()){
-        check_count++;
-      }
-    });
-    if(check_count>0){
-      if(!!mainSwiper){
-        mainSwiper.destroy();
-      }
-      $(".front_body").addClass("scroll_mode");
-    }else{
-      if(!mainSwiper){
-        mainSwiper = new Swiper('.mv_container',pluginOption);
-      }
-    }
-  }
-}
-
 
 
 
@@ -189,6 +122,16 @@ function mainSwiper() {
     speed: 1000,
     initialSlide: 0
   }
+
+  let resourceSwiper = new Swiper('.hor_swiper_wrap',{
+    speed : 1000,
+    // autoHeight : true,
+    effect : 'fade',
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+  });
   /* let faqscroll = new Swiper(".faqscroll", {
     direction: "vertical",
     slidesPerView: "auto",
@@ -405,6 +348,12 @@ function mainSwiper() {
         $(".nav_bottom_item , .nav_mobile_menu").eq(2).addClass("active");
       }else if(mainSwiper.realIndex == 9){
         $(".nav_bottom_item , .nav_mobile_menu").eq(3).addClass("active");
+      }
+      if (mainSwiper.realIndex == 4) {
+        resourceSwiper.slideTo(0,0);
+        setTimeout(()=>{
+          resourceSwiper.autoplay.start();
+        },1100);
       }
       $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeIn();
       $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeOut();
