@@ -18,9 +18,14 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 /* common */
 .pc_img{display:inline !important;}
 .mb_img{display:none !important;}
+.pc_item{display:block !important;}
+.mb_item{display:none !important;}
 @media (max-width:1023px){
   .pc_img{display:none !important;}
   .mb_img{display:inline !important;}
+
+  .pc_item{display:none !important;}
+  .mb_item{display:block !important;}
 }
 
 
@@ -206,6 +211,92 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 
 }
 
+
+/* about */
+.info_ui_wrap{width:100%;max-width:1920px;margin:0 auto;text-align:left;box-sizing: border-box;padding:0 8.33333333333333% 134px;display:flex;gap:12.5%;}
+.info_ui_title_cols{white-space: nowrap;flex:0;}
+.info_ui_title{font-size:3.542vw; color:#000; line-height:1.3; font-weight:700;}
+.info_ui_title br{}
+.info_ui_contents_cols{flex:1;}
+.info_ui_text_list{font-size:16px; color:#666666; line-height:1.4;}
+.info_ui_text_list > li{margin-bottom:10px; word-break: keep-all;}
+.info_ui_text_list > li:last-of-type{margin-bottom:0;}
+.info_symbol_list{margin-top:5.625vw; display:flex; gap:2.5vw;}
+.info_symbol_list > li{}
+.info_symbol_list > li:last-of-type{}
+.info_symbol_item{}
+.info_symbol_img{width:6.667vw;height:2.344vw;background:url("../images/obj_smile.png") no-repeat 0 0/100% auto;}
+.info_symbol_spec{margin-top:24px;}
+.info_symbol_main{font-size:20px; color:#111; font-weight:700;}
+.info_symbol_sub{font-size:16px; color:#666666; margin-top:8px;}
+.info_signature_logo{margin-top:60px;}
+.info_signature_logo img{max-width:18.646vw;vertical-align: top;}
+@media (min-width:1921px){
+  .info_ui_wrap{padding:30px 160px;display:flex;gap:240px;}
+  .info_ui_title{font-size:68px;}
+  .info_ui_text_list{font-size:16px;}
+  .info_ui_text_list > li{margin-bottom:10px;}
+  .info_symbol_list{margin-top:108px; gap:48px;}
+  .info_symbol_img{width:128px;height:45px;}
+  .info_symbol_spec{margin-top:24px;}
+  .info_symbol_main{font-size:20px;}
+  .info_symbol_sub{font-size:16px; margin-top:8px;}
+  .info_signature_logo{margin-top:60px;}
+  .info_signature_logo img{max-width:358px;}
+}
+
+@media (max-width:1900px){
+  /* .scene_obj_title{font-size:50px;}
+  .scene_list_container{padding:0 100px 134px; gap:100px;} */
+  .info_ui_wrap{}
+}
+@media (max-width:1340px){
+/*   .scene_list_container{padding:0 50px 134px; gap:50px;}
+  .scene_toggle_bar{padding:30px 100px 30px 30px;}
+  .scene_toggle_contents_inner{padding:20px 30px;}
+  .scene_toggle_bar_text{font-size:20px;} */
+  .info_ui_wrap{padding:0 50px 134px; gap:50px;}
+  .info_symbol_main{font-size:17px;}
+  .info_symbol_sub{font-size:14px;}
+}
+@media (max-width:1279px){
+/*   .scene_obj_title,
+  .scene_obj_title_text{font-size:40px;}
+  .scene_form_title_sub{font-size:14px;}
+  .scene_toggle_list > li.active .scene_toggle_bar:after{top:44px;}
+  .scene_toggle_list > li .scene_toggle_bar:after{top:35px;} */
+  .info_ui_title{font-size:40px;}
+}
+@media (max-width:1023px){
+  /* .main_scene.mc_02{align-items:flex-start; justify-content:flex-start;} */
+  .info_ui_wrap{display:block;padding:0 20px 140px; position:relative;}
+  .info_ui_title_cols{white-space: normal;}
+  .info_ui_title{font-size:32px;}
+  .info_ui_contents_cols{margin-top:20px}
+  .info_ui_text_list{font-size:14px;}
+  .info_symbol_list{margin-top:40px; gap:28px;}
+  .info_symbol_list > li{flex:0 0 88px;}
+  .info_symbol_item{max-width:88px;}
+  .info_symbol_img{width:100%;height:0; padding-bottom:35.22727272727273%; background:url("../images/obj_smile_mb.png") no-repeat 0 0/100% auto;}
+  .info_symbol_spec{margin-top:16px;}
+  .info_symbol_main{font-size:14px; }
+  .info_symbol_sub{font-size:12px;}
+  .info_signature_logo{margin-top:40px;}
+  .info_signature_logo img{max-width:173px;}
+}
+@media (max-width:450px){
+  .info_ui_title{font-size:8.889vw;}
+  .info_ui_contents_cols{margin-top:5.556vw}
+  .info_ui_text_list{font-size:3.889vw;}
+  .info_symbol_list{margin-top:11.111vw; gap:7.778vw;}
+  .info_symbol_list > li{flex:0 0 24.444vw;}
+  .info_symbol_item{max-width:24.444vw;}
+  .info_signature_logo{margin-top:11.111vw;}
+  .info_signature_logo img{max-width:48.056vw;}
+}
+@media (max-width:1023px) and (orientation: landscape) {
+  .info_ui_wrap{padding-top:52px;}
+ }
 
 /* contact us */
 .scene_form_container{width:100%; max-width:1920px; margin:0 auto; display:flex; box-sizing: border-box; padding:0 9.375%; gap:13.90625%; text-align: left;}
