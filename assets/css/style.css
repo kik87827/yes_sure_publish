@@ -232,7 +232,6 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .info_signature_logo{margin-top:60px;}
 .info_signature_logo img{max-width:18.646vw;vertical-align: top;}
 @media (min-width:1921px){
-  .info_ui_wrap{padding:30px 160px;display:flex;gap:240px;}
   .info_ui_title{font-size:68px;}
   .info_ui_text_list{font-size:16px;}
   .info_ui_text_list > li{margin-bottom:10px;}
