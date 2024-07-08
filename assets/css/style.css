@@ -33,7 +33,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
     min-height: calc(var(--vh, 1vh) * 100); min-width:280px; position:relative;
 }
 .page_header{position:fixed;top:0;left:0;width:100%;z-index:20;}
-.nav_group{}
+.nav_group{max-width:1920px; margin:0 auto;}
 .nav_top_list_zone{}
 .nav_top_list_wrap{display:flex; justify-content: space-between; align-items: center;min-height:120px;box-sizing: border-box;padding:0 112px;border-bottom:1px solid rgba(255,255,255,.08)}
 .nav_top_logo{}
@@ -231,6 +231,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .info_symbol_sub{font-size:16px; color:#666666; margin-top:8px;}
 .info_signature_logo{margin-top:60px;}
 .info_signature_logo img{max-width:18.646vw;vertical-align: top;}
+.about_blue_item{max-width:1140px;margin:0 auto;position:relative;top:-67px;}
+.about_blue_item img{max-width:100%;vertical-align: middle;}
 @media (min-width:1921px){
   .info_ui_title{font-size:68px;}
   .info_ui_text_list{font-size:16px;}
@@ -282,6 +284,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   .info_symbol_sub{font-size:12px;}
   .info_signature_logo{margin-top:40px;}
   .info_signature_logo img{max-width:173px;}
+  
+  .about_blue_item{top:-70px;}
 }
 @media (max-width:450px){
   .info_ui_title{font-size:8.889vw;}
@@ -295,6 +299,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 @media (max-width:1023px) and (orientation: landscape) {
   .info_ui_wrap{padding-top:52px;}
+  .about_blue_item{top:0;padding:52px 0 140px;max-width:360px;}
  }
 
 /* contact us */
