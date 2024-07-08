@@ -430,7 +430,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   .info_signature_logo{margin-top:11.111vw;}
   .info_signature_logo img{max-width:48.056vw;}
 
-  .hor_copy_dia_group{ max-width:100%;}
+  .hor_copy_dia_group{ max-width:80%;}
 }
 @media (max-width:1023px) and (orientation: landscape) {
   .info_ui_wrap{padding-top:52px;}
