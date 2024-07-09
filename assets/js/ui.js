@@ -111,6 +111,11 @@ function mainSwiper() {
   const main_scene = $(".main_scene");
   const anchor_menu = $(".nav_top_item , .nav_bottom_item , .nav_mobile_menu");
   let activeItem = $(".nav_top_item.active , .nav_bottom_item.active , .nav_mobile_menu.active");
+
+  let serviceSwiper = null;
+  let service_swiper_slide = $(".service_swiper_wrap .swiper-slide");
+  let service_swiper_length = service_swiper_slide.length;
+
   let pluginOption = {
     direction: 'vertical',
     mousewheel: {
@@ -347,6 +352,7 @@ function mainSwiper() {
         $(".nav_bottom_item , .nav_mobile_menu").eq(0).addClass("active");
       }else if(mainSwiper.realIndex == 7){
         $(".nav_bottom_item , .nav_mobile_menu").eq(1).addClass("active");
+        serviceAction();
       }else if(mainSwiper.realIndex == 8){
         $(".nav_bottom_item , .nav_mobile_menu").eq(2).addClass("active");
       }else if(mainSwiper.realIndex == 9){
@@ -424,6 +430,7 @@ function mainSwiper() {
           //console.log(".mc_08");
           anchor_menu.removeClass("active");
           $(".nav_bottom_item , .nav_mobile_menu").eq(1).addClass("active");
+          serviceAction();
         }
         
         if($(window).scrollTop() >= $(".mc_09").offset().top && $(window).scrollTop() <= $(".mc_09").offset().top + $(".mc_09").outerHeight(true)){
@@ -471,7 +478,76 @@ function mainSwiper() {
 
         } */
     }
-}
+  }
+
+  function serviceAction(){
+
+    if($(window).width()>1023){
+      pcAction();
+    }else{
+      mbAction();
+    }
+
+    $(window).on("resize",function(){
+      
+      setTimeout(()=>{
+        if(serviceSwiper !== null){
+          serviceSwiper.destroy();
+          serviceSwiper = null;
+        }
+        if(intervalTime){
+          clearInterval(intervalTime);
+          addIndex = 0;
+          intervalTime = 0;
+        }
+        service_swiper_slide.removeClass("swiper-slide-active");
+        service_swiper_slide.eq(0).addClass("swiper-slide-active");
+        if($(window).width()>1023){
+          pcAction();
+        }else{
+          mbAction();
+        }
+      },100);
+    });
+
+    function pcAction(){
+      $(".service_swiper_wrap").addClass("pcstop");
+        
+        /* service_swiper_slide.removeClass("swiper-slide-active");
+        service_swiper_slide.eq(0).addClass("swiper-slide-active"); */
+        intervalTime = setInterval(()=>{
+          addAction();
+        },2200);
+        
+				function addAction(){
+					if(addIndex > service_swiper_length - 1){
+						addIndex = 0;
+					}
+					service_swiper_slide.removeClass("swiper-slide-active");
+					service_swiper_slide.eq(addIndex).addClass("swiper-slide-active");
+					addIndex++;
+				}
+    }
+
+    function mbAction(){
+      /* if(intervalTime){
+        clearInterval(intervalTime);
+        intervalTime = 0;
+      } */
+      $(".service_swiper_wrap").removeClass("pcstop");
+      
+      serviceSwiper = new Swiper('.service_swiper_wrap',{
+        speed : 1000,
+        loog : true,
+        autoplay: {
+          delay: 2200,
+          disableOnInteraction: false,
+        },
+      });
+      // serviceSwiper.autoplay.start();
+    }
+  }
+
   function scrollEndAction(){
       if(!!anchor_menu){
           anchor_menu.removeClass("click_active");
