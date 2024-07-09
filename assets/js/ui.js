@@ -540,16 +540,19 @@ function mainSwiper() {
         intervalTime = 0;
       } */
       $(".service_swiper_wrap").removeClass("pcstop");
-      
-      serviceSwiper = new Swiper('.service_swiper_wrap',{
-        speed : 1000,
-        loog : true,
-        autoplay: {
-          delay: 2200,
-          disableOnInteraction: false,
-        },
-      });
-      // serviceSwiper.autoplay.start();
+      if(serviceSwiper === null){
+        serviceSwiper = new Swiper('.service_swiper_wrap',{
+          speed : 1000,
+          loog : true,
+          autoplay: {
+            delay: 2200,
+            disableOnInteraction: false,
+          },
+        });
+      }else{
+        serviceSwiper.slideTo(0,0);
+        serviceSwiper.autoplay.start();
+      }
     }
   }
 
