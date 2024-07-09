@@ -352,7 +352,9 @@ function mainSwiper() {
         $(".nav_bottom_item , .nav_mobile_menu").eq(0).addClass("active");
       }else if(mainSwiper.realIndex == 7){
         $(".nav_bottom_item , .nav_mobile_menu").eq(1).addClass("active");
-        serviceAction();
+        setTimeout(()=>{
+          serviceAction();
+        },100);
       }else if(mainSwiper.realIndex == 8){
         $(".nav_bottom_item , .nav_mobile_menu").eq(2).addClass("active");
       }else if(mainSwiper.realIndex == 9){
@@ -515,6 +517,9 @@ function mainSwiper() {
         
         /* service_swiper_slide.removeClass("swiper-slide-active");
         service_swiper_slide.eq(0).addClass("swiper-slide-active"); */
+        if(intervalTime !== 0){
+          clearInterval(intervalTime);
+        }
         intervalTime = setInterval(()=>{
           addAction();
         },2200);
