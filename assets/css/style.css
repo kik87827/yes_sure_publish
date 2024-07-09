@@ -90,6 +90,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
     /* height: 100%; */
     display: flex;
     flex-direction: column;
+    align-items: center;justify-content: center;position:relative;
     min-height: calc(var(--vh, 1vh) * 100);
   }
   
@@ -100,13 +101,19 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .main_body{position:relative;overflow:hidden;}
 
 
-.main_scene{position:relative;display:flex;align-items: center;justify-content: center;min-height:100vh;}
-.main_scene .bg{display:block;width:100%;height:100%;position:absolute;top:0;left:0;}
+.main_scene{}
+.main_scene .bg{display:block;width:100%;min-height: calc(var(--vh, 1vh) * 100);position:absolute;top:0;left:0;}
 .scene_contents{position:relative;width:100%;}
 .main_scene.mc_02 .bg{background-color:#fff;}
+.main_scene.mc_03,
+.main_scene.mc_04{background-color:#2965DF;}
 .main_scene.mc_03 .bg,
 .main_scene.mc_04 .bg{background-color:#2965DF;}
 .main_scene.mc_05 .bg{background-color:#fff;}
+
+.main_scene.mc_06,
+.main_scene.mc_07{background-color:#FFC700;}
+
 .main_scene.mc_06 .bg,
 .main_scene.mc_07 .bg{background-color:#FFC700;}
 .main_scene.mc_08 .bg{background-color:#fff;}
@@ -265,8 +272,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .masking_obj{width:13.958vw;height:13.958vw;background:url("../images/ic_masking.svg") no-repeat 0 0/100% auto; animation: rotate 4s linear infinite }
 .masking_obj2{width:5.208vw;height:5.208vw; border-radius:100%; background:#FFC700;}
 
-.hor_copy_primary_row{display:flex; justify-content: space-between; align-items: flex-start;gap:30px;}
-.hor_copy_primary_row.type2{align-items: flex-start;}
+.hor_copy_primary_row{display:flex; justify-content: space-between;gap:30px;}
 .hor_copy_primary_row.gap2{gap:8.542vw;}
 .hor_copy_primary_group{padding-bottom:40px;}
 .hor_copy_primary_group.type2{padding-bottom:0;}
@@ -296,6 +302,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .hor_dia_img.dia1 img{max-width:716px;}
 .hor_dia_img.dia2{}
 .hor_dia_img.dia2 img{max-width:884px;}
+
+.hor_copy_obj_group{display:flex; flex-direction: column; justify-content: flex-end;}
 
 .hor_package_wrap{display:flex; justify-content: space-between; align-items: flex-end;gap:6.042vw;}
 .hor_pkey_cols{padding:85px 0 40px; border-top:1px solid rgba(0,0,0,.2); flex:0 0 600px;}
