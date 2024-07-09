@@ -433,7 +433,27 @@
 						<div class="main_scene mc_09">
 							<div class="bg"></div>
 							<div class="scene_contents">
-								<p style="color:#fff;text-align: center;">business</p>
+								<div class="biz_tab_container">
+									<h2 class="biz_tab_title">BUSINESS</h2>
+									<div class="scene_tab_zone">
+										<div class="scene_tab_menu_row">
+											<ul class="scene_tab_menu_list">
+												<li><a href="#scene_cont01" class="scene_tab_menu active">도입절차</a></li>
+												<li><a href="#scene_cont02" class="scene_tab_menu">비용안내</a></li>
+											</ul>
+										</div>
+										<div class="scene_tab_contents">
+											<div class="scene_tab_cont active" id="scene_cont01">
+												<img src="./assets/images/biz_tab_pc01.png" class="pc_img" alt="">
+												<img src="./assets/images/biz_tab_mb01.png" class="mb_img" alt="">
+											</div>
+											<div class="scene_tab_cont" id="scene_cont02">
+												<img src="./assets/images/biz_tab_pc02.png" class="pc_img" alt="">
+												<img src="./assets/images/biz_tab_mb02.png" class="mb_img" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -602,6 +622,7 @@
 					mainSwiper();
 					formLayout();
 					faqToggle();
+					sceneTab();
 				});
 			</script>
 		</main>

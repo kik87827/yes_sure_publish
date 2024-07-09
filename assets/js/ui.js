@@ -523,3 +523,23 @@ function faqToggle(){
     });
   });
 } 
+
+
+
+function sceneTab(){
+  $(function(){
+    let scene_tab_menu = $(".scene_tab_menu");
+    scene_tab_menu.on("click",function(e){
+      e.preventDefault();
+      let thisDom = $(this);
+      let thisTarget = $(thisDom.attr("href"));
+      thisDom.closest(".scene_tab_menu_list").find(".scene_tab_menu").removeClass("active");
+      thisDom.addClass("active");
+
+      if(thisTarget.length){
+        thisDom.closest(".biz_tab_container").find(".scene_tab_cont").removeClass("active");
+        thisTarget.addClass("active");
+      }
+    });
+  });
+}
