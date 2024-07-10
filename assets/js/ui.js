@@ -476,6 +476,12 @@ function mainSwiper() {
           $(".btn_nav_mobile_call").addClass("skin2");
         }
 
+
+        if($(window).scrollTop() >= $(".footer_wrap").offset().top && $(window).scrollTop() <= $(".footer_wrap").offset().top + $(".footer_wrap").outerHeight(true)){
+          $(".nav_bottom_list_zone , .btn_top_scroll_wrap").hide();
+
+        }
+
         /* if($(window).scrollTop() >= $(".mc_02").offset().top){
 
         }else if($(window).scrollTop() >= $(".mc_08").offset().top){

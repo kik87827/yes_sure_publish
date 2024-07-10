@@ -24,6 +24,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .pc_br{display:block !important;}
 .pc_br2{display:block !important;}
 .pix_br{display:block !important;}
+/* .scroll_mode *{transition:none !important;} */
 
 @media (max-width:1023px){
   .pc_img{display:none !important;}
@@ -582,7 +583,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .scroll_mode .info_ui_title_cols,
 .scroll_mode .info_ui_contents_cols,
 .scroll_mode .hor_copy_primary_group,
-.scroll_mode .hor_copy_obj_group
+.scroll_mode .hor_copy_obj_group,
+.scroll_mode .scene_list_title_row
 {opacity:1; transform: translateX(0);}
 
 
@@ -690,6 +692,7 @@ textarea.sf_ta{width:100%; height:96px; font-size:16px; letter-spacing: -1px; bo
 .swiper-slide.swiper-slide-active .scene_form_contents_cols{opacity:1; transform: translateX(0);}
 
 .scroll_mode .scene_list_title_row .scene_form_title_cols,
+.scroll_mode .scene_form_title_cols,
 .scroll_mode .scene_form_contents_cols{opacity:1; transform: translateX(0);}  
 
 
@@ -788,6 +791,8 @@ img.intro_obj.pc_img{max-width:14.896vw;}
  .main_scene.mc_01 .bg{background-position:100% 100%;}
  img.intro_obj.mb_img{top:-10px;right:-50px;}
 }
+
+.scroll_mode .intro_gate_wrap{padding-bottom:50px;}
 
 /* motion before */
 .intro_obj{transition: all .8s ease-out; opacity:0; transform: translateX(-70px);}
