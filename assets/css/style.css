@@ -972,6 +972,23 @@ img.intro_obj.pc_img{max-width:14.896vw;}
 @media (max-width:1023px) and (orientation: landscape) {
   .scene_tab_cont img{max-width:50%;}
 }
+
+/* motion before */
+/* .scene_service_title_row{transition: all .8s ease-out .5s; opacity:0; transform: translateX(100px);}
+.service_swiper_wrap{transition: all .8s ease-out .8s; opacity:0; transform: translateX(-70px);} */
+.biz_tab_title{transition: all .8s ease-out .5s; opacity:0; transform: translateX(70px);}
+.scene_tab_zone{transition: all .8s ease-out .8s; opacity:0; transform: translateY(70px);}
+/* motion after */
+/* .swiper-slide.swiper-slide-active .scene_service_title_row,
+.swiper-slide.swiper-slide-active .service_swiper_wrap{opacity:1; transform: translateX(0);}
+
+.scroll_mode .scene_service_title_row,
+.scroll_mode .service_swiper_wrap{opacity:1; transform: translateX(0);} */
+.swiper-slide.swiper-slide-active .biz_tab_title{opacity:.2; transform: translateX(0) translateY(0);}
+.swiper-slide.swiper-slide-active .scene_tab_zone{opacity:1; transform: translateX(0) translateY(0);}
+
+.scroll_mode .biz_tab_title{opacity:.2; transform: translateX(0) translateY(0);}
+.scroll_mode .scene_tab_zone{opacity:1; transform: translateX(0) translateY(0);}
 /* // business */
 
 
@@ -1086,16 +1103,8 @@ img.intro_obj.pc_img{max-width:14.896vw;}
 /* motion before */
 .scene_service_title_row{transition: all .8s ease-out .5s; opacity:0; transform: translateX(100px);}
 .service_swiper_wrap{transition: all .8s ease-out .8s; opacity:0; transform: translateX(-70px);}
-/* .scene_list_title_row{transition: all .8s ease-out .6s; opacity:0; transform: translateX(-70px);}
-.scene_toggle_list_wrap{transition: all .8s ease-out 1s; opacity:0; transform: translateX(70px);} */
 
 /* motion after */
-/* .swiper-slide.swiper-slide-active .scene_list_title_row,
-.swiper-slide.swiper-slide-active .scene_toggle_list_wrap{opacity:1; transform: translateX(0);}
-
-.scroll_mode .scene_list_title_row .scene_list_title_row,
-.scroll_mode .scene_toggle_list_wrap{opacity:1; transform: translateX(0);} */
-
 .swiper-slide.swiper-slide-active .scene_service_title_row,
 .swiper-slide.swiper-slide-active .service_swiper_wrap{opacity:1; transform: translateX(0);}
 
