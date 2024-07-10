@@ -281,6 +281,7 @@ function mainSwiper() {
     scrollEndAction();
   });
 
+  //$("body").append("<div id='debug' style='position:fixed;top:0;right:0;background:red;color:#fff;padding:10px;z-index:1000' />")
 
 
   function sceneCheck(){
@@ -322,6 +323,7 @@ function mainSwiper() {
     $(".btn_top_scroll_wrap").not(".clone").removeClass("pos2");
     $(".nav_mobile_call_wrap").addClass("none");
     $(".btn_nav_mobile_call").removeClass("skin2");
+    $(".main_scene.mc_11").closest(".swiper-slide").removeClass("swiper-slide-active");
     if (mainSwiper.realIndex == 0) {
         $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeOut();
         $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeIn();
@@ -347,6 +349,10 @@ function mainSwiper() {
     }else if(mainSwiper.realIndex == 11){
       $(".nav_mobile_call_wrap").removeClass("none");
       $(".btn_bottom_scroll_wrap,.nav_bottom_list_zone").fadeOut();
+      setTimeout(()=>{
+        $(".main_scene.mc_11").parents(".swiper-slide").addClass("swiper-slide-active");
+      },30);
+      //$("#debug").text('if'+mainSwiper.realIndex);
     }else{
       if (mainSwiper.realIndex >= 1 && mainSwiper.realIndex <= 6) {
         $(".nav_bottom_item , .nav_mobile_menu").eq(0).addClass("active");
@@ -371,7 +377,9 @@ function mainSwiper() {
       $(".btn_top_scroll_wrap , .nav_bottom_list_zone").fadeIn();
       $(".btn_bottom_scroll_wrap , .nav_top_list_zone").fadeOut();
       $(".btn_top_scroll_wrap.clone").hide();
+
     }
+    
   }
 
   function scrollAction() {
