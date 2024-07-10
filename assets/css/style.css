@@ -614,6 +614,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .scroll_mode .about_blue_item{padding:50px 0;text-align: center;}
 .scroll_mode .about_blue_item img{max-width:70%;margin:0 auto;}
 @media (max-width:1340px){
+  .about_blue_item{padding:50px 0;text-align: center;}
+  .about_blue_item img{max-width:70%;margin:0 auto;}
 }
 
 /* .swiper-slide.swiper-slide-active .scene_list_title_row,

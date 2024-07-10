@@ -293,7 +293,7 @@ function mainSwiper() {
       page_header_height= 0;
     }
     $(".front_body").removeClass("scroll_mode");
-    if($(window).width()>$(window).height() && touchstart){
+    if($(window).width()>$(window).height() && touchstart && $(window).width()<1023){
       $(".front_body").addClass("scroll_mode");
       return;
     }
