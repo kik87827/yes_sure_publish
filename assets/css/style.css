@@ -611,6 +611,10 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .scroll_mode .channel_spec_wrap,
 .scroll_mode .main_scene.mc_06 .bg{opacity:1; transform: translateX(0);}
 
+.scroll_mode .about_blue_item{padding:50px 0;text-align: center;}
+.scroll_mode .about_blue_item img{max-width:70%;margin:0 auto;}
+@media (max-width:1340px){
+}
 
 /* .swiper-slide.swiper-slide-active .scene_list_title_row,
 .swiper-slide.swiper-slide-active .scene_toggle_list_wrap{opacity:1; transform: translateX(0);}
