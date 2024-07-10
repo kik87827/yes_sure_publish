@@ -146,6 +146,9 @@ function mainSwiper() {
     },
     mousewheel: true,
   }); */
+
+  
+  //$("body").append("<div id='debug' style='position:fixed;top:0;right:0;background:red;color:#fff;padding:10px;z-index:1000' />")
   
   $(".mc_11").append($(".btn_top_scroll_wrap").clone(true).addClass("clone"));
 
@@ -281,7 +284,6 @@ function mainSwiper() {
     scrollEndAction();
   });
 
-  //$("body").append("<div id='debug' style='position:fixed;top:0;right:0;background:red;color:#fff;padding:10px;z-index:1000' />")
 
 
   function sceneCheck(){
@@ -297,8 +299,10 @@ function mainSwiper() {
       $(".front_body").addClass("scroll_mode");
       return;
     }
+    
     scene_contents.each(function(){
       if($(this).outerHeight(true) >= $(window).height() - page_header_height){
+        //$("#debug").text($(this).parents(".main_scene").className);
         check_count++;
       }
     });
