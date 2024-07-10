@@ -133,7 +133,7 @@ function mainSwiper() {
     // autoHeight : true,
     effect : 'fade',
     autoplay: {
-      delay: 1500,
+      delay: 2200,
       disableOnInteraction: false,
     },
   });
