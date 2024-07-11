@@ -617,6 +617,10 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   .about_blue_item{padding:50px 0;text-align: center;}
   .about_blue_item img{max-width:70%;margin:0 auto;}
 }
+@media (max-width:450px){
+  .about_blue_item{padding:0;}
+  .about_blue_item img{max-width:90%;}
+}
 
 /* .swiper-slide.swiper-slide-active .scene_list_title_row,
 .swiper-slide.swiper-slide-active .scene_toggle_list_wrap{opacity:1; transform: translateX(0);}
