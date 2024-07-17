@@ -940,15 +940,15 @@ img.intro_obj.pc_img{max-width:14.896vw;}
 .scene_tab_menu_list{display:flex;gap:1.667vw;}
 .scene_tab_menu_list > li{}
 .scene_tab_menu_list > li:last-of-type{}
-.scene_tab_menu{font-size:1.25vw; opacity:.3; color:#fff; font-weight:700; display:inline-block; padding-top:0.521vw; position:relative;}
-.scene_tab_menu:before{display:block;content:'';width:100%; height:2px; background:#fff; position:absolute;top:0;left:0;}
-.scene_tab_menu.active{opacity:1;}
-.scene_tab_menu.active:before{}
+.scene_tab_menu{font-size:1.25vw; opacity:1; color:#888; font-weight:700; display:inline-block; padding-top:0.521vw; position:relative;}
+.scene_tab_menu:before{display:block;content:'';width:100%; height:2px; background:#888; position:absolute;top:0;left:0;}
+.scene_tab_menu.active{opacity:1; color:#fff;}
+.scene_tab_menu.active:before{ background:#fff;}
 .biz_tab_title{}
 
 .scene_tab_contents{}
 .scene_tab_cont{display:none; justify-content: center; text-align: center; padding:0 4.167vw;background:#fff; border-radius:0.625vw; align-items: center; min-height:25vw;}
-.scene_tab_cont img{vertical-align: top;}
+.scene_tab_cont img{vertical-align: top; max-width: none;}
 .scene_tab_cont.active{display:flex;}
 
 
@@ -966,11 +966,12 @@ img.intro_obj.pc_img{max-width:14.896vw;}
   .scene_tab_cont{min-height:29.167vw;}
 }
 @media (max-width:1900px){
-  
+  .scene_tab_cont img{max-width:100%;}
 }
 @media (max-width:1340px){
   .biz_tab_container{padding:0 50px 134px;}
   .scene_tab_cont{padding:0 40px;min-height:350px;}
+  
 }
 @media (max-width:1279px){
   
@@ -1003,7 +1004,7 @@ img.intro_obj.pc_img{max-width:14.896vw;}
 
 .scroll_mode .scene_service_title_row,
 .scroll_mode .service_swiper_wrap{opacity:1; transform: translateX(0);} */
-.swiper-slide.swiper-slide-active .biz_tab_title{opacity:.2; transform: translateX(0) translateY(0);}
+.swiper-slide.swiper-slide-active .biz_tab_title{opacity:1; transform: translateX(0) translateY(0);}
 .swiper-slide.swiper-slide-active .scene_tab_zone{opacity:1; transform: translateX(0) translateY(0);}
 
 .scroll_mode .biz_tab_title{opacity:.2; transform: translateX(0) translateY(0);}
