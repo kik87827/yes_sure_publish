@@ -131,10 +131,15 @@ function mainSwiper() {
   let resourceSwiper = new Swiper('.hor_swiper_wrap',{
     speed : 1000,
     // autoHeight : true,
+    loop : true,
     effect : 'fade',
     autoplay: {
       delay: 2200,
       disableOnInteraction: false,
+    },
+    navigation : {
+      nextEl : '.btn_hor_swiper_control.next', // 다음 버튼 클래스명
+      prevEl : '.btn_hor_swiper_control.prev', // 이번 버튼 클래스명
     },
   });
   /* let faqscroll = new Swiper(".faqscroll", {
@@ -371,7 +376,7 @@ function mainSwiper() {
         $(".nav_bottom_item , .nav_mobile_menu").eq(3).addClass("active");
       }
       if (mainSwiper.realIndex == 4) {
-        resourceSwiper.slideTo(0,0);
+        resourceSwiper.slideToLoop(0);
         setTimeout(()=>{
           resourceSwiper.autoplay.start();
         },1100);
@@ -432,7 +437,7 @@ function mainSwiper() {
         }
         
         if($(window).scrollTop() >= $(".mc_05").offset().top && $(window).scrollTop() <= $(".mc_05").offset().top + $(".mc_05").outerHeight(true)){
-          resourceSwiper.slideTo(0,0);
+          resourceSwiper.slideToLoop(0,0);
           setTimeout(()=>{
             resourceSwiper.autoplay.start();
           },1100);
