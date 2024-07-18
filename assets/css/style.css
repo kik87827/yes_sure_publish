@@ -298,6 +298,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 
 .hor_copy_dia_group{max-width:37.292vw;padding-top:4.167vw;}
 .hor_copy_dia2_group{max-width:42.708vw;}
+.hor_copy_dia2_group img{}
 
 @keyframes rotate {
   from {
