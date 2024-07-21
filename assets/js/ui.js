@@ -133,10 +133,10 @@ function mainSwiper() {
     // autoHeight : true,
     loop : true,
     effect : 'fade',
-    autoplay: {
+    /* autoplay: {
       delay: 2200,
       disableOnInteraction: false,
-    },
+    }, */
     navigation : {
       nextEl : '.btn_hor_swiper_control.next', // 다음 버튼 클래스명
       prevEl : '.btn_hor_swiper_control.prev', // 이번 버튼 클래스명
@@ -383,7 +383,7 @@ function mainSwiper() {
       if (mainSwiper.realIndex == 4) {
         resourceSwiper.slideToLoop(0);
         setTimeout(()=>{
-          resourceSwiper.autoplay.start();
+         // resourceSwiper.autoplay.start();
         },1100);
       }else{
         resourceSwiper.autoplay.stop();
