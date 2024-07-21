@@ -261,8 +261,8 @@ function mainSwiper() {
     e.preventDefault();
     $(".btn_nav_mobile_close").trigger("click");
   });
-  $(".scene_toggle_list_wrap").on("mousewheel touchmove",function(e){
-    if($(window).width()<=1023){
+  /* $(".scene_toggle_list_wrap").on("mousewheel touchmove mousemove",function(e){
+     if($(window).width()<=1023){
       if($(".scene_toggle_list").outerHeight(true) > 330){
         e.stopPropagation();
       }
@@ -271,8 +271,8 @@ function mainSwiper() {
         
       }
     }
-  });
-  $(".scene_tab_cont").on("mousewheel touchmove",function(e){
+  }); */
+  $(".scene_tab_cont,.scene_toggle_list_wrap").on("mousewheel touchmove mousemove",function(e){
     let $this = $(this);
     if($this.prop('scrollHeight') > $this.prop('clientHeight')){
       e.stopPropagation();
