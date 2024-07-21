@@ -490,9 +490,9 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   .info_symbol_sub{font-size:12px;}
   .info_signature_logo{margin-top:40px;}
   .info_signature_logo img{max-width:173px;}
-  .main_scene.mc_02,
+  /* .main_scene.mc_02,
   .main_scene.mc_03,
-  .main_scene.mc_04,
+  .main_scene.mc_04, */
   .main_scene.mc_05{justify-content: flex-start;padding-top:30px;}
   /* .info_symbol_img{width:24.444vw;height:8.611vw;} */
   .info_symbol_img{width:88px;height:31px;}
