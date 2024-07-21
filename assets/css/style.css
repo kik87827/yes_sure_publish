@@ -891,9 +891,9 @@ img.intro_obj.pc_img{max-width:14.896vw;}
 .scene_toggle_list > li.active .scene_toggle_contents{}
 .scene_toggle_list > li.active .scene_toggle_bar:after{border-color:#fff;transform: rotate(225deg);top:55px;}
 .scene_toggle_list > li:last-of-type{}
-.scene_toggle_bar{border-radius:12px; position:relative; padding:42px 100px 42px 40px; display:block;}
+.scene_toggle_bar{border-radius:12px; position:relative; padding:42px 100px 42px 40px; display:block;transition:.4s;}
 .scene_toggle_bar:after{
-    display:block;content:'';width:12px;height:12px;border-right:2px solid #333;border-bottom:2px solid #333;
+    display:block;content:'';width:12px;height:12px;border-right:2px solid #333;border-bottom:2px solid #333; transition:.4s;
     position:absolute;top:48px;right:42px; transform: rotate(45deg);
 }
   
