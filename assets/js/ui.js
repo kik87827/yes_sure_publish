@@ -268,10 +268,15 @@ function mainSwiper() {
       }
     }else{
       if($(".scene_toggle_list").outerHeight(true) > $(window).height() - 455){
-        e.stopPropagation();
+        
       }
     }
-    
+  });
+  $(".scene_tab_cont").on("mousewheel touchmove",function(e){
+    let $this = $(this);
+    if($this.prop('scrollHeight') > $this.prop('clientHeight')){
+      e.stopPropagation();
+    }
   });
   $(window).on("resize",function(){
     if (windowWidth !== $(window).width()) {
@@ -304,11 +309,11 @@ function mainSwiper() {
       $(".front_body").addClass("scroll_mode");
       return;
     }
-    
     scene_contents.each(function(){
       if($(this).outerHeight(true) >= $(window).height() - page_header_height){
-        //$("#debug").text($(this).parents(".main_scene").className);
-        check_count++;
+       // $("#debug").text();
+       console.log($(this).parents(".main_scene"))
+        // check_count++;
       }
     });
     if(check_count>0){
@@ -630,16 +635,29 @@ function formLayout(){
 function faqToggle(){
   $(function(){
     let scene_toggle_bar = $(".scene_toggle_bar");
+    let scene_toggle_Contents = $(".scene_toggle_contents");
+    let scene_toggle_list_wrap = $(".scene_toggle_list_wrap");
+    $(".scene_toggle_list > li").eq(0).addClass("active");
+    scene_toggle_Contents.eq(0).show();
     scene_toggle_bar.on("click",function(e){
       e.preventDefault();
       let thisDom = $(this);
       let thisDomLi = thisDom.closest("li");
+      let thisDomContents = thisDomLi.find(".scene_toggle_contents");
       let thisDomUl = thisDom.closest(".scene_toggle_list");
       let thisDomUlLi = thisDomUl.children("li").not(thisDomLi);
+      let thisDomUlContents = thisDomUl.children("li").not(thisDomLi).find(".scene_toggle_contents");
 
       thisDomUlLi.removeClass("active");
+      thisDomUlContents.slideUp();
+      
       
       thisDomLi.toggleClass("active");
+      thisDomContents.slideToggle(function(){
+        scene_toggle_list_wrap.stop().animate({
+          "scrollTop" : thisDomLi.position().top
+        })
+      });
     });
   });
 } 
